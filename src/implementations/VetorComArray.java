@@ -16,6 +16,14 @@ public class VetorComArray implements VetorInterface {
         return tamanho;
     }
 
+    public boolean estaVazio() {
+        return tamanho == 0;
+    }
+
+    private boolean estaCheio() {
+        return tamanho == array.length;
+    }
+
     public Object elementoNaColocacao(int colocacao) {
         if(colocacao < 0) {
             throw new ColocacaoInexistenteException("Não existe colocação negativa nessa implementação de vetor.");
@@ -26,5 +34,19 @@ public class VetorComArray implements VetorInterface {
         }
 
         return array[colocacao];
+    }
+
+    public Object substituirElementoNaColocacao(int colocacao, Object novoElemento) {
+        if(colocacao < 0) {
+            throw new ColocacaoInexistenteException("Já falei que não existe colocação negativa nessa implementação de vetor.");
+        }
+
+        if(colocacao >= this.tamanho) {
+            throw new ColocacaoInexistenteException("O tamanho do vetor é %d. Como tú quer que exista colocação %d?".formatted(tamanho(), colocacao));
+        }
+
+        Object elementoQueEstavaNaColocacao = array[colocacao];
+        array[colocacao] = novoElemento;
+        return elementoQueEstavaNaColocacao;
     }
 }
