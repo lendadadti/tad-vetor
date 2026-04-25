@@ -32,7 +32,7 @@ public class VetorComArray implements VetorInterface {
         return tamanho == array.length;
     }
 
-    private boolean haPeloUmElementoNoVetor() {
+    private boolean haPeloMenosUmElementoNoVetor() {
         return tamanho > 0;
     }
 
@@ -41,7 +41,7 @@ public class VetorComArray implements VetorInterface {
     }
 
     private void duplicarEspacoDoArray() {
-        int novaCapacidade = tamanho * 2;
+        int novaCapacidade = array.length * 2;
         Object[] novoArray = new Object[novaCapacidade];
         for(int i = 0; i < tamanho; i++) {
             novoArray[i] = array[i];
@@ -127,10 +127,17 @@ public class VetorComArray implements VetorInterface {
     }
 
     public Object removerPrimeiroElemento() {
+        if(!haPeloMenosUmElementoNoVetor()) {
+            throw new ColocacaoInexistenteException("Não existe nenhum elemento no vetor.");
+        }
+
         return removerElementoNaColocacao(0);
     }
 
     public Object removerUltimoElemento() {
+        if(!haPeloMenosUmElementoNoVetor()) {
+            throw new ColocacaoInexistenteException("Não existe nenhum elemento no vetor.");
+        }
         return removerElementoNaColocacao(tamanho - 1);
     }
 }
