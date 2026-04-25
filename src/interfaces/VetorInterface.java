@@ -8,9 +8,9 @@ public interface VetorInterface {
      * Foi traduzida para o Português apenas por capricho didático.
      */
     public Object elementoNaColocacao(int colocacao);
-    public Object substituirElementoNaColocacao(int colocacao, Object novoElemento);
-    public void inserirElementoNaColocacao(int colocacao, Object novoElemento);
-    public Object removerElementoNaColocacao(int colocacao);
+    //public Object substituirElementoNaColocacao(int colocacao, Object novoElemento);
+    //public void inserirElementoNaColocacao(int colocacao, Object novoElemento);
+    //public Object removerElementoNaColocacao(int colocacao);
     public int tamanho();
-    public boolean estaVazia();
+    //public boolean estaVazia();
 }
